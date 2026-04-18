@@ -1,0 +1,58 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "WattHound – Leistungssensor",
+        "description": "Wähle den Sensor, der den gesamten Hausverbrauch misst (z. B. Shelly 3EM, Tibber Pulse, SML-Lesekopf). Der Sensorwert muss numerisch und in Watt angegeben sein.",
+        "data": {
+          "power_sensor": "Leistungssensor-Entität"
+        }
+      },
+      "timing": {
+        "title": "WattHound – Zeiteinstellungen",
+        "description": "Passe die Verzögerungen an das Meldeintervall deines Messgeräts an.\n\n**Messverzögerung**: Wartezeit nach einem Schaltereignis, bevor der Leistungssensor gelesen wird. Muss größer sein als das Meldeintervall des Messgeräts (Shelly 3EM ≈ 2 s → empfohlen: 4 s).\n\n**Sauberes Fenster**: Schaltet innerhalb dieses Zeitfensters ein *anderes* Gerät, wird die Messung als 'dirty' verworfen.\n\n**Mindestmessungen**: Wie viele saubere Messungen nötig sind, bevor ein Wert angezeigt wird.\n\n**Maximale Messungen**: Größe des gleitenden Fensters für den Schätzer.",
+        "data": {
+          "measure_delay": "Messverzögerung (Sekunden)",
+          "clean_window": "Sauberes Fenster (Sekunden)",
+          "min_samples": "Mindestanzahl sauberer Messungen",
+          "max_samples": "Maximale gespeicherte Messungen"
+        }
+      },
+      "tracking": {
+        "title": "WattHound – Was wird erfasst?",
+        "description": "Wähle, für welche Entitätsdomänen die Leistung gelernt werden soll. Schließe Geräte aus, die bereits einen eigenen Leistungsmesser haben.",
+        "data": {
+          "track_lights": "Licht-Entitäten erfassen",
+          "track_switches": "Schalter-Entitäten erfassen",
+          "excluded_entities": "Ausgeschlossene Entitäten"
+        }
+      }
+    },
+    "error": {
+      "sensor_not_found": "Sensor-Entität nicht in Home Assistant gefunden.",
+      "sensor_unavailable": "Sensor ist aktuell nicht verfügbar. Gerät prüfen.",
+      "sensor_not_numeric": "Sensorwert ist keine Zahl. Nur numerische Leistungssensoren werden unterstützt.",
+      "must_be_positive": "Wert muss größer als null sein.",
+      "window_smaller_than_delay": "Das saubere Fenster sollte mindestens so groß wie die Messverzögerung sein."
+    },
+    "abort": {
+      "already_configured": "WattHound ist bereits konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "WattHound – Einstellungen",
+        "data": {
+          "measure_delay": "Messverzögerung (Sekunden)",
+          "clean_window": "Sauberes Fenster (Sekunden)",
+          "min_samples": "Mindestanzahl sauberer Messungen",
+          "max_samples": "Maximale gespeicherte Messungen",
+          "track_lights": "Licht-Entitäten erfassen",
+          "track_switches": "Schalter-Entitäten erfassen",
+          "excluded_entities": "Ausgeschlossene Entitäten"
+        }
+      }
+    }
+  }
+}
